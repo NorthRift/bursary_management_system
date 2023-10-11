@@ -22,7 +22,12 @@
             <div class="col-md-6" style="margin-top: 6vh">
             <div class="card-body">
                 @if(session()->has('message'))
-                <span class="text-sucess">{{session()->get('message')}}</span>
+                 <div class="alert alert-warning alert-dismissible fade show text-center"  role="alert" style="position:sticky">
+                    <span class="font-weight-bold">{{session()->get('message')}}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                         </button>
+                         </div>
                 @endif
                 <form method="POST" action="{{url('login-custom')}}">
                     @csrf
@@ -58,7 +63,7 @@
                 <form method="post" action="{{url('reset_password')}}">
                     @csrf
                 <label class="font-weight-bold">Enter Email :</label>
-                 <input type="email" name="email" class="form-control" id="">
+                 <input type="email" name="email" class="form-control" id="" required>
                  <input type="submit" value="Reset" name="reset" class="btn btn-primary mt-2">
                 </form>
              </div>
